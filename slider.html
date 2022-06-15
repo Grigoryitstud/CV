@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <header>
+        <header class="head">
             <h1>It is a great pleasure to show you my CV</h1>
         </header>
         <div class="slider">
@@ -26,29 +26,29 @@
 
                 <div class="slide sl">
                     <video preload="auto" poster="img/letsTalk.jpg" controls class="video">
-                        <source src="img/introduce.webm" type="video/web">
+                        <source src="img/introduce.webm" type="video/webm">
                     </video>
                 </div>
                 <div class="slide">
                     <video preload="auto" poster="img/animation.jpg" controls class="video">
-                        <source src="img/animation.webm" type="video/web">
+                        <source src="img/animation.webm" type="video/webm">
                         <source src="img/animation.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="slide">
                     <video preload="auto" controls class="video">
-                        <source src="img/node.webm" type="video/web">
+                        <source src="img/node.webm" type="video/webm">
                         <source src="img/node.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="slide">
-                    <video preload="auto" poster="img/maxresdefault.jpg" controls class="video">
+                    <video preload="auto" poster="img/codewars.jpg" controls class="video">
                         <source src="img/codewars.mp4" type="video/mp4">/
                     </video>
                 </div>
                 <div class="slide">
                     <video preload="auto" poster="img/gs-tasks.jpg" controls class="video">
-                        <source src="img/gs-tasks.web" type="video/web">
+                        <source src="img/gs-tasks.webm" type="video/webm">
                     </video>
                 </div>
 
@@ -64,14 +64,22 @@
                         <h2>CECK CODE</h2>
                     </div>
                     <div class="title">
-                        <a href="https://github.com/Grigoryitstud/HTML-builder"><h2>CLICK HERE</h2></a>
+                        <a class="link" href="https://github.com/Grigoryitstud/HTML-builder">
+                            <h2>nodeBuilder</h2>
+                        </a>
                     </div>
                     <div class="title">
-                        <a href="https://www.codewars.com/users/Grigoryitstud/completed"><h2>CLICK HERE</h2></a>
+                        <a class="link" href="https://www.codewars.com/users/Grigoryitstud/completed">
+                            <h2>codeBattles</h2>
+                        </a>
                     </div>
                     <div class="title">
-                        <a href="https://github.com/Grigoryitstud/basic-js"><h2>CLICK HERE</h2></a>
-                        <a href="https://github.com/Grigoryitstud/basic-js-ds"><h2>CLICK HERE</h2></a>
+                        <a class="link" href="https://github.com/Grigoryitstud/basic-js">
+                            <h2>jsBasic </h2>
+                        </a>
+                        <a class="link" href="https://github.com/Grigoryitstud/basic-js-ds">
+                            <h2>basicJsDs</h2>
+                        </a>
                     </div>
                 </div>
 
@@ -95,14 +103,12 @@
             </div>
 
         </div>
-        <footer>
-            <h3>mobile version begining at <br> width 768 </h3>
-        </footer>
+        <h3 class="section">За кожны верны адказ атрымаешь падарунак</h3>
         <div class="quiz-over-modal">
             <div class="content">
                 <h1>Хороший результат !</h1>
-                <p>Ты ответил на 
-                    <span id="correct-answer"></span> из 
+                <p>Ты ответил на
+                    <span id="correct-answer"></span> из
                     <span id="number-of-all-questions-2"></span> вопроса
                 </p>
                 <button id="btn-try-again">Попробуй снова</button>
@@ -110,7 +116,7 @@
         </div>
         <div class="quiz-container">
             <div class="question-number">
-                <h3>Вопрос 
+                <h3>Вопрос
                     <span id="number-of-question"></span>
                     из
                     <span id="number-of-all-questions"></span>
@@ -123,14 +129,26 @@
                 <div data-id="2" class="option option3"></div>
                 <div data-id="3" class="option option4"></div>
             </div>
-            <div class="button">
-                <button id="btn-next">Next</button>
+            <div class="result">
+                <div class="button">
+                    <button id="btn-next">Next</button>
+                </div>
+                <div class="projects">
+                    <a class="project" href="https://grigoryitstud.github.io/SHELRER__Webpac_Scss_HTML_JS/pages/main/index.html">SHELTER</a>
+                    <a class="project" href="https://grigoryitstud.github.io/">DEMOCRACY</a>
+                    <a class="project" href="https://grigoryitstud.github.io/warkers/">WORKERS</a>
+                </div>
             </div>
             <div id="answers-tracker">
-                
+
             </div>
         </div>
+        <footer class="footer">
+            <img class="footer__img" src="img/GitHub.jpg" alt="">
+            <h4><a class="footer__text" href="https://github.com/Grigoryitstud">my GitHub address</a></h4>
+        </footer>
     </div>
+
     <script src="main.js"></script>
 </body>
 

@@ -1,15 +1,17 @@
 const option1 = document.querySelector('.option1'),
-      option2 = document.querySelector('.option2'),
-      option3 = document.querySelector('.option3'),
-      option4 = document.querySelector('.option4');
+    option2 = document.querySelector('.option2'),
+    option3 = document.querySelector('.option3'),
+    option4 = document.querySelector('.option4');
 
-const optionElements = document.querySelectorAll ('.option');
+const optionElements = document.querySelectorAll('.option');
 
 const question = document.getElementById('question');
 
 const numberOfQuestion = document.getElementById('number-of-question');
 const numberOfAllQuestions = document.getElementById('number-of-all-questions');
-      
+
+const project = document.getElementsByClassName('project')
+
 
 let indexOfQuestion,
     indexOfPage = 0;
@@ -20,8 +22,8 @@ const btnNext = document.getElementById('btn-next');
 let score = 0;
 
 const correctAnswer = document.getElementById('correct-answer'),
-      numberOfAllQuestions2 = document.getElementById('number-of-all-questions-2'),
-      btnTryAgain = document.getElementById('btn-try-again');
+    numberOfAllQuestions2 = document.getElementById('number-of-all-questions-2'),
+    btnTryAgain = document.getElementById('btn-try-again');
 
 const questions = [
     {
@@ -71,15 +73,15 @@ numberOfAllQuestions.innerHTML = questions.length; // колич. вопросо
 
 const load = () => {
     question.innerHTML = questions[indexOfQuestion].question; // номер вапроса
-     // мапим ответы
-     
-     option1.innerHTML = questions[indexOfQuestion].options[0];
-     option2.innerHTML = questions[indexOfQuestion].options[1];
-     option3.innerHTML = questions[indexOfQuestion].options[2];
-     option4.innerHTML = questions[indexOfQuestion].options[3];
+    // мапим ответы
 
-     numberOfQuestion.innerHTML = indexOfPage + 1; 
-     indexOfPage++;
+    option1.innerHTML = questions[indexOfQuestion].options[0];
+    option2.innerHTML = questions[indexOfQuestion].options[1];
+    option3.innerHTML = questions[indexOfQuestion].options[2];
+    option4.innerHTML = questions[indexOfQuestion].options[3];
+
+    numberOfQuestion.innerHTML = indexOfPage + 1;
+    indexOfPage++;
 };
 
 let completedAnswers = [];
@@ -88,23 +90,23 @@ const randomQuestion = () => {
     let randomNumber = Math.floor(Math.random() * questions.length);
     let hitDuplicate = false; //якорь для проверки одинаковых вопросов
 
-    if(indexOfPage == questions.length){
+    if (indexOfPage == questions.length) {
         quizOver()
-    } else{
-        if(completedAnswers.length > 0) {
+    } else {
+        if (completedAnswers.length > 0) {
             completedAnswers.forEach(item => {
-                if(item == randomNumber) {
+                if (item == randomNumber) {
                     hitDuplicate = true;
                 }
             })
-            if(hitDuplicate) {
+            if (hitDuplicate) {
                 randomQuestion();
-            }else {
+            } else {
                 indexOfQuestion = randomNumber;
                 load();
             }
         }
-        if(completedAnswers.length == 0) {
+        if (completedAnswers.length == 0) {
             indexOfQuestion = randomNumber;
             load();
         }
@@ -113,25 +115,29 @@ const randomQuestion = () => {
 };
 
 const checkAnswer = el => {
-    if(el.target.dataset.id == questions[indexOfQuestion].rightAnswer - 1) {
+    if (el.target.dataset.id == questions[indexOfQuestion].rightAnswer - 1) {
         el.target.classList.add('correct');
         updateAnswerTracker('correct');
+        if (score < project.length) {
+            project[score].classList.add('show');
+        }
         score++;
-    } else{
+
+    } else {
         el.target.classList.add('wrong');
         updateAnswerTracker('wrong');
     }
     disableOptions();
 }
 
-for(option of optionElements) {
-    option.addEventListener('click' , e => checkAnswer(e));
+for (option of optionElements) {
+    option.addEventListener('click', e => checkAnswer(e));
 }
 
 const disableOptions = () => {
     optionElements.forEach(item => {
         item.classList.add('disabled');
-        if(item.dataset.id == questions[indexOfQuestion].rightAnswer - 1) {
+        if (item.dataset.id == questions[indexOfQuestion].rightAnswer - 1) {
             item.classList.add('correct');
         }
     })
@@ -140,7 +146,7 @@ const disableOptions = () => {
 const enableOptions = () => {
     optionElements.forEach(item => {
         item.classList.remove('disabled', 'correct', 'wrong');
-        })
+    })
 }
 
 const answerTracker = () => {
@@ -155,7 +161,7 @@ const updateAnswerTracker = status => {
 }
 
 const validate = () => {
-    if(!optionElements[0].classList.contains('disabled')){
+    if (!optionElements[0].classList.contains('disabled')) {
         alert('chouse the answer!')
     } else {
         randomQuestion();
