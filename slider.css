@@ -59,7 +59,6 @@ input[name="r"] {
 
 .slides {
     width: 500%;
-    height: 80%;
     display: flex;
 }
 
@@ -72,7 +71,7 @@ input[name="r"] {
 }
 
 .video {
-    height: 540px;
+    height: auto;
     width: 100%;
 }
 
@@ -136,6 +135,7 @@ h2 {
 }
 
 .navigation {
+    padding-left: 20px;
     width: 100%;
     padding-right: 10%;
     display: flex;
@@ -156,16 +156,12 @@ h2 {
 
 .dot {
     width: 50%;
-    height: 40%;
+    height: 30%;
     cursor: pointer;
     background-color: rgb(32, 27, 27);
     opacity: 1;
     border-radius: 100%;
     transition: all .4s ease;
-}
-
-.dot:active {
-    background-color: rgb(170, 50, 50);
 }
 
 #r1:checked~.help>.navigation>label[for="r1"]>.dot {
@@ -313,7 +309,6 @@ h3 {
 
 .project {
     color: darkcyan;
-    text-decoration: none;
     display: none;
     font-weight: 600;
     font-size: 25px;
@@ -406,35 +401,44 @@ h3 {
     justify-content: center;
     gap: 150px;
     font-size: 56px;
-    margin-bottom: 100px;
+    margin-bottom: 100px;    
+    text-decoration: none;    
+    color: azure;
 
+}
+.footer__text {
+    text-decoration: none;    
+    color: azure;
 }
 
 @media screen and (max-width: 768px) {
+   
+    .quiz-container {        
+        padding: 15px;
+    }
+    .project {
+        font-weight: 500;
+        font-size: 22px;        
+    }
+    .projects {
+        gap: 15px;
+    }
     .footer {
         width: 100%;
         gap: 20px;
         font-size: 36px;
     }
-}
-
-.footer__img {
-    width: 150px;
-    height: auto;
-}
-
-.footer__text {
-    text-decoration: none;
-
-    color: azure;
-}
-
-.footer__text:hover {
-    color: darkgray;
-    cursor: pointer;
-}
-
-@media screen and (max-width: 768px) {
+    
+    
+    .footer__img {
+        width: 150px;
+        height: auto;
+    }
+    
+    .footer__text:hover {
+        color: darkgray;
+        cursor: pointer;
+    }
     .help {
         grid-template-columns: 30% 40% 30%;
         grid-template-rows: 3rem 1fr;
@@ -454,7 +458,8 @@ h3 {
     .navigation {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
-        background-color: rgb(216, 253, 2);
+        background-color:  darkcyan;
+        border-radius: 100px;
     }
 
     h1 {
@@ -465,8 +470,33 @@ h3 {
         font-size: 1.5rem;
     }
 }
+@media screen and (max-width: 624px) {
+    .section {
+        font-size: 25px;
+    }
+    .quiz-container {        
+        padding: 10px;
+    }
+    .project {
+        font-weight: 400;
+        font-size: 17px;
+    }
+    .projects {
+        gap: 8px;
+    }
+    .footer {
+        font-size: 26px;      
+    }
 
-@media screen and (max-width: 490px) {
+}
+
+@media screen and (max-width: 510px) {
+    .section {
+        font-size: 23px;
+    }
+    .quiz-container {        
+        padding: 5px;
+    }
     h2 {
         font-size: 180%;
     }
@@ -478,4 +508,22 @@ h3 {
     h3 {
         font-size: 1rem;
     }
+    .project {
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .projects {
+        gap: 3px;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 368px) {
+    .quiz-container {        
+        padding: 3px;
+    }
+    .project {
+        font-weight: 300;
+        font-size: 15px;
+    }
+
 }
